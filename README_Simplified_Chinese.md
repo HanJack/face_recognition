@@ -116,8 +116,17 @@ pip3 install face_recognition
 
 修改你的pip镜像源为清华镜像，然后使用`pip install face_recognition`,可以自动帮你安装各种依赖，包括dlib。只是在安装dlib的时候可能会出问题，因为dlib需要编译，出现的问题一般是`gcc`或者`g++`版本的问题，所以在`pip install face_recognition`之前，可以通过在命令行键入  
 
+    centos:
+    sudo yum -y install gcc gcc-c++ kernel-devel
+    
+    #whereis gcc/g++  查找安装路径
+    
     export CC=/usr/local/bin/gcc
-    export CXX=/usr/local/bin/g++  
+    export CXX=/usr/local/bin/g++ 
+    
+    指定清华镜像，和超时时长：
+    pip install face_recognition -i https://pypi.tuna.tsinghua.edu.cn/simple/  --default-timeout=200
+   
     
 来指定你gcc和g++对应的位置，（这两句话会临时修改当前终端的环境变量/usr/local/bin/gcc对应你自己gcc或者g++所在目录）。
 
